@@ -139,7 +139,7 @@
         <div class="container">
             <h2 class="section-title fade-up-element fade-up" data-i18n="sec.company">Our Signature Developments</h2>
             <p class="section-subtitle fade-up-element fade-up" data-i18n="sec.company.sub">Exclusive residential
-                projects developed entirely by Obour Realestate Development.</p>
+                and commercial projects developed entirely by Obour Realestate Development.</p>
 
             <div class="project-grid">
                 <!-- Project 1 -->
@@ -178,11 +178,11 @@
                 <div class="project-card fade-up-element fade-up">
                     <div class="project-img-wrapper">
                         <span class="project-badge">Exclusive</span>
-                        <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="The Grand Residences">
+                        <img src="images/ninth_district.jpg"
+                            alt="Ninth district">
                     </div>
                     <div class="project-info">
-                        <h3 class="project-title">The Grand Residences</h3>
+                        <h3 class="project-title">Ninth district</h3>
                         <div class="project-location">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>Ninth District, Obour City</span>
@@ -190,7 +190,7 @@
                         <div class="project-details-grid">
                             <div class="detail-item">
                                 <span class="detail-label" data-i18n="lbl.price">From</span>
-                                <span class="detail-value price-val">2,800,000</span>
+                                <span class="detail-value price-val">2,900,000</span>
                             </div>
                             <div class="detail-item">
                                 <span class="detail-label">Status</span>
@@ -198,9 +198,7 @@
                             </div>
                         </div>
                         <div class="unit-sizes">
-                            <span class="unit-size">175 m²</span>
-                            <span class="unit-size">135 m²</span>
-                            <span class="unit-size">160 m²</span>
+                            <span class="unit-size">190 m²</span>
                         </div>
                         <div class="project-footer">
                             <a href="#" class="btn btn-outline" style="width: 100%;" data-i18n="btn.details">View
@@ -213,19 +211,18 @@
                 <div class="project-card fade-up-element fade-up">
                     <div class="project-img-wrapper">
                         <span class="project-badge">Exclusive</span>
-                        <img src="https://images.unsplash.com/photo-1460317442991-0ec209397118?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="Skyline Towers">
+                        <img src="images/gold_mall.jpg"
+                            alt="gold mall">
                     </div>
                     <div class="project-info">
-                        <h3 class="project-title">Skyline Towers</h3>
+                        <h3 class="project-title">gold mall</h3>
                         <div class="project-location">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>Fifth District, Obour City</span>
+                            <span>Seventh District, Obour City</span>
                         </div>
                         <div class="project-details-grid">
                             <div class="detail-item">
                                 <span class="detail-label" data-i18n="lbl.price">From</span>
-                                <span class="detail-value price-val">4,200,000</span>
                             </div>
                             <div class="detail-item">
                                 <span class="detail-label">Status</span>
@@ -233,9 +230,7 @@
                             </div>
                         </div>
                         <div class="unit-sizes">
-                            <span class="unit-size">140 m²</span>
-                            <span class="unit-size">170 m²</span>
-                            <span class="unit-size">200 m²</span>
+                            <span class="unit-size">up to 40 m²</span>
                         </div>
                         <div class="project-footer">
                             <a href="#" class="btn btn-outline" style="width: 100%;" data-i18n="btn.details">View
@@ -254,16 +249,20 @@
             <p class="section-subtitle fade-up-element fade-up" data-i18n="sec.external.sub">Premium real estate
                 opportunities we market across Obour City.</p>
 
-            <div class="project-grid">
-                <!-- Generating multiple external projects for demonstration scale -->
-                <!-- Use a script-like repetition for structural demonstration -->
+            <div class="project-grid" id="external-projects-grid">
+                <!-- External projects will be injected via JS to support translations -->
                 <script>
-                    const externalProjNames = ['Opal Suites', 'Sunrise Vista', 'Elite Plaza', 'Green Oasis', 'Metro Life', 'City Center Apartments', 'Royal Gardens', 'The Boulevard', 'Horizon Towers', 'Crescent Park'];
-                    const locs = ['Second District', 'Third District', 'Fourth District', 'Sixth District', 'Seventh District', 'Eighth District', 'Tenth District'];
+                    const extContainer = document.getElementById('external-projects-grid');
+                    const numExternalProjects = 10;
+                    const locsEng = ['Fifth District, Obour City', 'First District, Obour City', 'Third District, Obour City', 'Sakan Misr, Obour City', 'Golf City, Obour City', 'Eighth District, Obour City', 'Seventh District, Obour City', 'First District, Obour City', 'Eighth District, Obour City', 'Sixth District, Obour City'];
+                    
+                    const prices = ['4,000,000', '4,800,000', '3,500,000', '2,150,000', '5,500,000', '2,600,000', '6,500,000', '3,200,000', '2,900,000', '3,800,000'];
+                    const sizes = ['200', '225', '200', '115', '169', '131', '200', '150', '140', '180'];
+                    const finishingKeys = ['finish.semi', 'finish.ultra', 'finish.super', 'finish.super', 'finish.ultra', 'finish.super', 'finish.super', 'finish.semi', 'finish.super', 'finish.semi'];
 
-                    externalProjNames.forEach((name, i) => {
-                        let imgUrl = `https://images.unsplash.com/photo-${1500000000000 + i * 123456789}?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60`;
-                        // Fallbacks just to ensure images work
+                    // We create placeholders that the main JS will translate
+                    let extHtml = '';
+                    for(let i=0; i<numExternalProjects; i++) {
                         let fallbacks = [
                             '1560518883-ce09059eeffa',
                             '1512917774080-9991f1c4c750',
@@ -276,37 +275,40 @@
                             '1545324418-cc1a3fa10c00',
                             '1574362848149-11496d93a7c7'
                         ];
-
-                        document.write(`
+                        
+                        extHtml += `
                             <div class="project-card fade-up-element fade-up">
                                 <div class="project-img-wrapper">
-                                    <span class="project-badge" style="background-color: #64748b;">Marketed</span>
-                                    <img src="https://images.unsplash.com/photo-${fallbacks[i]}?auto=format&fit=crop&w=800&q=80" alt="${name}">
+                                    <span class="project-badge" style="background-color: #64748b;" data-i18n="badge.marketed">Marketed</span>
+                                    <img src="https://images.unsplash.com/photo-${fallbacks[i]}?auto=format&fit=crop&w=800&q=80" alt="Apartment ${i+1}">
                                 </div>
                                 <div class="project-info">
-                                    <h3 class="project-title">${name}</h3>
+                                    <h3 class="project-title"><span data-i18n="ext.apt">Apartment</span> ${i+1}</h3>
                                     <div class="project-location">
                                         <i class="fas fa-map-marker-alt"></i>
-                                        <span>${locs[i % locs.length]}, Obour City</span>
+                                        <span data-i18n="ext.loc.${i}">${locsEng[i]}</span>
                                     </div>
                                     <div class="project-details-grid">
                                         <div class="detail-item">
-                                            <span class="detail-label">From</span>
-                                            <span class="detail-value price-val">${(2 + (i % 3))},${(1 + i)}00,000</span>
+                                            <span class="detail-label" data-i18n="lbl.price">From</span>
+                                            <span class="detail-value price-val">${prices[i]}</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label" data-i18n="lbl.finishing">Finishing</span>
+                                            <span class="detail-value" data-i18n="${finishingKeys[i]}">Super Lux</span>
                                         </div>
                                     </div>
                                     <div class="unit-sizes">
-                                        <span class="unit-size">${90 + i * 5} m²</span>
-                                        <span class="unit-size">${110 + i * 5} m²</span>
-                                        <span class="unit-size">${130 + i * 5} m²</span>
+                                        <span class="unit-size">${sizes[i]} m²</span>
                                     </div>
                                     <div class="project-footer">
-                                        <a href="#" class="btn btn-outline" style="width: 100%;">View Details</a>
+                                        <a href="#" class="btn btn-outline" style="width: 100%;" data-i18n="btn.details">View Details</a>
                                     </div>
                                 </div>
                             </div>
-                        `);
-                    });
+                        `;
+                    }
+                    extContainer.innerHTML = extHtml;
                 </script>
             </div>
         </div>
